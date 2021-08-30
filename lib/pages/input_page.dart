@@ -1,10 +1,10 @@
-import 'package:baby_growth/results_page.dart';
+import 'package:baby_growth/pages/results_page.dart';
 import 'package:baby_growth/search_brain.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
+import '../icon_content.dart';
+import '../reusable_card.dart';
+import '../constants.dart';
 import 'results_page.dart';
 
 enum Gender { male, female }
@@ -213,7 +213,7 @@ class _InputPageState extends State<InputPage> {
             GestureDetector(
               onTap: () {
                 SearchCalculatorBrain calc =
-                    SearchCalculatorBrain(birthWeight: weight, birthMonth: age);
+                    SearchCalculatorBrain(babyWeight: weight, birthMonth: age, babyHeight: height, gender: selectedGender);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

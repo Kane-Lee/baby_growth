@@ -1,6 +1,6 @@
 import 'package:baby_growth/constants.dart';
 import 'package:flutter/material.dart';
-import 'reusable_card.dart';
+import '../reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
 
