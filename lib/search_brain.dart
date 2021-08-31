@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tables/weight_table.dart';
+import 'tables/height_table.dart';
+
 
 class SearchCalculatorBrain {
   final double babyWeight;
@@ -7,13 +9,15 @@ class SearchCalculatorBrain {
   final int birthMonth;
   final String gender;
 
+
+
   String weightPercentile;
   String heightPercentile;
 
   SearchCalculatorBrain({@required this.babyWeight, @required this.birthMonth, @required this.gender, @required this.babyHeight});
 
   String findWeight(double birthWeight, int birthMonth, String gender) {
-    if (gender == male) {
+    if (gender == 'male') {
       weightPercentile =
           percentile[seq_search(birthWeight, BoyWeightTable[birthMonth])];
     } else {
@@ -24,7 +28,7 @@ class SearchCalculatorBrain {
   }
 
   String findHeight(double birthHeight, int birthMonth, String gender) {
-    if (gender == male) {
+    if (gender == 'male') {
       weightPercentile =
       percentile[seq_search(birthHeight, BoyHeightTable[birthMonth])];
     } else {

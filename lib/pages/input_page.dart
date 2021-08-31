@@ -7,7 +7,7 @@ import '../reusable_card.dart';
 import '../constants.dart';
 import 'results_page.dart';
 
-enum Gender { male, female }
+
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender;
+  String selectedGender;
   double height = 80.0;
   double weight = 3.0;
   int intWeight = 30;
@@ -43,10 +43,10 @@ class _InputPageState extends State<InputPage> {
                     child: ReusableCard(
                         onPress: () {
                           setState(() {
-                            selectedGender = Gender.male;
+                            selectedGender = 'male';
                           });
                         },
-                        colour: selectedGender == Gender.male
+                        colour: selectedGender == 'male'
                             ? kActiveCardColour
                             : kInactiveCardColour,
                         cardChild: IconContent(
@@ -57,10 +57,10 @@ class _InputPageState extends State<InputPage> {
                     child: ReusableCard(
                         onPress: () {
                           setState(() {
-                            selectedGender = Gender.female;
+                            selectedGender = 'female';
                           });
                         },
-                        colour: selectedGender == Gender.female
+                        colour: selectedGender == 'female'
                             ? kActiveCardColour
                             : kInactiveCardColour,
                         cardChild: IconContent(
@@ -218,7 +218,7 @@ class _InputPageState extends State<InputPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => ResultsPage(
-                          weightRatio: calc.findWeight(weight, age))),
+                          weightRatio: calc.findWeight(weight, age, selectedGender))),
                 );
               },
               child: Container(
