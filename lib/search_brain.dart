@@ -9,8 +9,6 @@ class SearchCalculatorBrain {
   final int birthMonth;
   final String gender;
 
-
-
   String weightPercentile;
   String heightPercentile;
 
@@ -24,30 +22,34 @@ class SearchCalculatorBrain {
       weightPercentile =
           percentile[seq_search(birthWeight, GirlWeightTable[birthMonth])];
     }
+    print('weight percentile is $weightPercentile%.');
     return weightPercentile;
   }
 
   String findHeight(double birthHeight, int birthMonth, String gender) {
     if (gender == 'male') {
-      weightPercentile =
+      heightPercentile =
       percentile[seq_search(birthHeight, BoyHeightTable[birthMonth])];
     } else {
-      weightPercentile =
+      heightPercentile =
       percentile[seq_search(birthHeight, GirlHeightTable[birthMonth])];
     }
+    print('height percentile is $heightPercentile%.');
     return heightPercentile;
   }
 }
 
-int seq_search(double key, List sequence) {
+int seq_search(double key, List sequence) { //key는 검색하려는 값, sequence는 검색하려는 대상
   int i = 0;
   while (true) {
-    if (i == sequence.length) {
-      return i;
-    }
-    if (sequence[i] < key) {
+     if (i == 12) {
+       print('over');
+       return i;
+    }else if (sequence[i] < key) {
       i++;
+      print('i : $i, key : $key, percentile: ${percentile[i]} %');
     } else {
+      print(i);
       return i;
     }
   }

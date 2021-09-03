@@ -7,15 +7,13 @@ import '../reusable_card.dart';
 import '../constants.dart';
 import 'results_page.dart';
 
-
-
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-  String selectedGender;
+  String selectedGender = 'male';
   double height = 80.0;
   double weight = 3.0;
   int intWeight = 30;
@@ -111,8 +109,10 @@ class _InputPageState extends State<InputPage> {
                           max: 120.0,
                           onChanged: (double newValue) {
                             setState(() {
-                              print(newValue);
+
                               height = newValue;
+                              print('weight : $weight, height : $height, month : $age');
+
                             });
                           }),
                     )
@@ -146,7 +146,7 @@ class _InputPageState extends State<InputPage> {
                                     setState(() {
                                       intWeight++;
                                       weight = intWeight / 10;
-                                      print(weight);
+                                      print('weight : $weight, height : $height, month : $age');
                                     });
                                   }),
                               SizedBox(
@@ -158,7 +158,8 @@ class _InputPageState extends State<InputPage> {
                                     setState(() {
                                       intWeight--;
                                       weight = intWeight / 10;
-                                      print(weight);
+                                      print('weight : $weight, height : $height, month : $age');
+
                                     });
                                   })
                             ],
@@ -189,6 +190,7 @@ class _InputPageState extends State<InputPage> {
                                   onPressed: () {
                                     setState(() {
                                       age++;
+                                      print('weight : $weight, height : $height, month : $age');
                                     });
                                   }),
                               SizedBox(
@@ -199,6 +201,7 @@ class _InputPageState extends State<InputPage> {
                                   onPressed: () {
                                     setState(() {
                                       age--;
+                                      print('weight : $weight, height : $height, month : $age');
                                     });
                                   })
                             ],
@@ -218,7 +221,8 @@ class _InputPageState extends State<InputPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => ResultsPage(
-                          weightRatio: calc.findWeight(weight, age, selectedGender))),
+                          weightRatio: calc.findWeight(weight, age, selectedGender),
+                          heightRatio: calc.findHeight(height, age, selectedGender),)),
                 );
               },
               child: Container(

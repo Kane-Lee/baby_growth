@@ -4,9 +4,10 @@ import '../reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
 
-  ResultsPage({@required this.weightRatio});
+  ResultsPage({@required this.weightRatio, @required this. heightRatio});
 
   final String weightRatio;
+  final String heightRatio;
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +36,27 @@ class ResultsPage extends StatelessWidget {
               child: ReusableCard(
                 colour: kInactiveCardColour,
                 cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
+                    SizedBox(height: 50),Text(
                       'Result Text',
                       style: kResultTextStyle,
                       textAlign: TextAlign.center,
                     ),
+                    SizedBox(height: 50),
+
                     Text(
-                      '$weightRatio%',
-                      style: kBMITextStyle,
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '100명의 아기 중 상위 $weightRatio% 체중입니다.',
+                      '체중 : 상위 $weightRatio% 입니다.',
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
+                    Text(
+                      '신장 : 상위 $heightRatio% 입니다.',
+                      style: kBodyTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+
                   ],
                 ),
               ),
