@@ -12,6 +12,9 @@ class SearchCalculatorBrain {
   String weightPercentile;
   String heightPercentile;
 
+  String averWeight;
+  String averHeight;
+
   SearchCalculatorBrain({@required this.babyWeight, @required this.birthMonth, @required this.gender, @required this.babyHeight});
 
   String findWeight(double birthWeight, int birthMonth, String gender) {
@@ -37,6 +40,26 @@ class SearchCalculatorBrain {
     print('height percentile is $heightPercentile%.');
     return heightPercentile;
   }
+
+  String averageWeight(int birthMonth, String gender){
+    if (gender == 'male'){
+      averWeight = BoyWeightTable[birthMonth][7].toStringAsFixed(1);
+    } else {
+      averWeight = GirlWeightTable[birthMonth][7].toStringAsFixed(1);
+    }
+    return averWeight;
+  }
+
+  String averageHeight(int birthMonth, String gender){
+    if (gender == 'male'){
+      averHeight = BoyHeightTable[birthMonth][7].toStringAsFixed(1);
+    } else {
+      averHeight = GirlHeightTable[birthMonth][7].toStringAsFixed(1);
+    }
+    return averHeight;
+  }
+
+
 }
 
 int seq_search(double key, List sequence) { //key는 검색하려는 값, sequence는 검색하려는 대상

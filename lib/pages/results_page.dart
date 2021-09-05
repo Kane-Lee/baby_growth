@@ -1,23 +1,38 @@
 import 'package:baby_growth/constants.dart';
 import 'package:flutter/material.dart';
 import '../reusable_card.dart';
+import 'package:baby_growth/tables/height_table.dart';
+import 'package:baby_growth/tables/weight_table.dart';
 
 class ResultsPage extends StatelessWidget {
-
-  ResultsPage({@required this.weightRatio, @required this. heightRatio});
+  ResultsPage(
+      {@required this.weightRatio,
+      @required this.heightRatio,
+      @required this.averWeight,
+      @required this.averHeight,
+      @required this.month,
+      @required this.gender,
+      @required this.height,
+      @required this.weight});
 
   final String weightRatio;
   final String heightRatio;
+  final String averWeight;
+  final String averHeight;
+  final int month;
+  final String gender;
+  final double weight;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '영유아 성장 발달 계산기',
-          style: TextStyle(color: Color(0xFF4C4F5E)),
+        appBar: AppBar(
+          title: Text(
+            '영유아 성장 발달 계산기',
+            style: TextStyle(color: Color(0xFF4C4F5E)),
+          ),
         ),
-      ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -36,27 +51,27 @@ class ResultsPage extends StatelessWidget {
               child: ReusableCard(
                 colour: kInactiveCardColour,
                 cardChild: Column(
-
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    SizedBox(height: 50),Text(
-                      'Result Text',
+                    Text(
+                      '측정 결과',
                       style: kResultTextStyle,
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 50),
-
                     Text(
-                      '체중 : 상위 $weightRatio% 입니다.',
+                      '내 아이의 \n 체중은 $weight kg 상위 $weightRatio% 입니다.\n 키는 ${height.toStringAsFixed(1)}cm 상위 $heightRatio% 입니다. ',
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      '신장 : 상위 $heightRatio% 입니다.',
+                      '$month 개월 $gender 아기의 \n 평균 체중은 $averWeight kg 입니다. \n 평균 신장은 $averHeight cm 입니다.',
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
-
+                    SizedBox(
+                      height: 10,
+                    )
                   ],
                 ),
               ),
@@ -72,14 +87,13 @@ class ResultsPage extends StatelessWidget {
                 color: kBottomContainerColor,
                 child: Center(
                     child: Text(
-                      '다시 계산하기',
-                      style: kLabelTextStyle.copyWith(color: Colors.black),
-                    )),
+                  '다시 계산하기',
+                  style: kLabelTextStyle.copyWith(color: Colors.black),
+                )),
                 padding: EdgeInsets.only(bottom: 20.0),
               ),
             )
           ],
-        )
-    );
+        ));
   }
 }

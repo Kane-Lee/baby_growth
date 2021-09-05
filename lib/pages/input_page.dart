@@ -109,10 +109,9 @@ class _InputPageState extends State<InputPage> {
                           max: 120.0,
                           onChanged: (double newValue) {
                             setState(() {
-
                               height = newValue;
-                              print('weight : $weight, height : $height, month : $age');
-
+                              print(
+                                  'weight : $weight, height : $height, month : $age');
                             });
                           }),
                     )
@@ -146,7 +145,8 @@ class _InputPageState extends State<InputPage> {
                                     setState(() {
                                       intWeight++;
                                       weight = intWeight / 10;
-                                      print('weight : $weight, height : $height, month : $age');
+                                      print(
+                                          'weight : $weight, height : $height, month : $age');
                                     });
                                   }),
                               SizedBox(
@@ -158,8 +158,8 @@ class _InputPageState extends State<InputPage> {
                                     setState(() {
                                       intWeight--;
                                       weight = intWeight / 10;
-                                      print('weight : $weight, height : $height, month : $age');
-
+                                      print(
+                                          'weight : $weight, height : $height, month : $age');
                                     });
                                   })
                             ],
@@ -190,7 +190,8 @@ class _InputPageState extends State<InputPage> {
                                   onPressed: () {
                                     setState(() {
                                       age++;
-                                      print('weight : $weight, height : $height, month : $age');
+                                      print(
+                                          'weight : $weight, height : $height, month : $age');
                                     });
                                   }),
                               SizedBox(
@@ -201,7 +202,8 @@ class _InputPageState extends State<InputPage> {
                                   onPressed: () {
                                     setState(() {
                                       age--;
-                                      print('weight : $weight, height : $height, month : $age');
+                                      print(
+                                          'weight : $weight, height : $height, month : $age');
                                     });
                                   })
                             ],
@@ -215,14 +217,26 @@ class _InputPageState extends State<InputPage> {
             ),
             GestureDetector(
               onTap: () {
-                SearchCalculatorBrain calc =
-                    SearchCalculatorBrain(babyWeight: weight, birthMonth: age, babyHeight: height, gender: selectedGender);
+                SearchCalculatorBrain calc = SearchCalculatorBrain(
+                    babyWeight: weight,
+                    birthMonth: age,
+                    babyHeight: height,
+                    gender: selectedGender);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => ResultsPage(
-                          weightRatio: calc.findWeight(weight, age, selectedGender),
-                          heightRatio: calc.findHeight(height, age, selectedGender),)),
+                            weightRatio:
+                                calc.findWeight(weight, age, selectedGender),
+                            heightRatio:
+                                calc.findHeight(height, age, selectedGender),
+                            averWeight: calc.averageWeight(age, selectedGender),
+                            averHeight: calc.averageHeight(age, selectedGender),
+                            month: age,
+                            gender: selectedGender,
+                        height: height,
+                          weight: weight,
+                          )),
                 );
               },
               child: Container(
