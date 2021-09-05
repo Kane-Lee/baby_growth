@@ -18,6 +18,7 @@ class _InputPageState extends State<InputPage> {
   double weight = 3.0;
   int intWeight = 30;
   int age = 0;
+  String selectedGenderKorean = '남자';
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,7 @@ class _InputPageState extends State<InputPage> {
                         onPress: () {
                           setState(() {
                             selectedGender = 'male';
+                            selectedGenderKorean = '남자';
                           });
                         },
                         colour: selectedGender == 'male'
@@ -56,6 +58,7 @@ class _InputPageState extends State<InputPage> {
                         onPress: () {
                           setState(() {
                             selectedGender = 'female';
+                            selectedGenderKorean = '여자';
                           });
                         },
                         colour: selectedGender == 'female'
@@ -233,7 +236,7 @@ class _InputPageState extends State<InputPage> {
                             averWeight: calc.averageWeight(age, selectedGender),
                             averHeight: calc.averageHeight(age, selectedGender),
                             month: age,
-                            gender: selectedGender,
+                            gender: selectedGenderKorean,
                         height: height,
                           weight: weight,
                           )),

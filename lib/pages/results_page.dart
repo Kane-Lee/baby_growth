@@ -1,8 +1,6 @@
 import 'package:baby_growth/constants.dart';
 import 'package:flutter/material.dart';
 import '../reusable_card.dart';
-import 'package:baby_growth/tables/height_table.dart';
-import 'package:baby_growth/tables/weight_table.dart';
 
 class ResultsPage extends StatelessWidget {
   ResultsPage(
@@ -60,12 +58,12 @@ class ResultsPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      '내 아이의 \n 체중은 $weight kg 상위 $weightRatio% 입니다.\n 키는 ${height.toStringAsFixed(1)}cm 상위 $heightRatio% 입니다. ',
+                      '내 아이의 \n 체중은 $weight kg 상위 $weightRatio% 입니다.\n 신장은 ${height.toStringAsFixed(1)}cm 상위 $heightRatio% 입니다. ',
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      '$month 개월 $gender 아기의 \n 평균 체중은 $averWeight kg 입니다. \n 평균 신장은 $averHeight cm 입니다.',
+                      '$month 개월 $gender 아이의 \n 평균 체중은 $averWeight kg 입니다. \n 평균 신장은 $averHeight cm 입니다.',
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
